@@ -11,5 +11,7 @@
 ## Send mail
 
 ```typescript
+import {Mail} from "@targoninc/ts-mail";
+
 
 ```
