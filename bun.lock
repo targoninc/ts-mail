@@ -3,7 +3,7 @@
   "workspaces": {
     "": {
       "dependencies": {
-        "@targoninc/ts-logging": "^0.0.1",
+        "@targoninc/ts-logging": "^0.0.3",
         "nodemailer": "^6.10.1",
       },
       "devDependencies": {
@@ -19,7 +19,7 @@
   "packages": {
     "@stacksjs/dtsx": ["@stacksjs/dtsx@0.8.0", "", { "bin": { "dtsx": "dist/cli.js" } }, "sha512-x7HxXTRZTrwvpSTZlxL5lu4F1sFHnDynAQBNr3UIkrctCKQbe7dYM21SfEozBx5+qBk+Mv1yZUvrUL/aA1bQwg=="],
 
-    "@targoninc/ts-logging": ["@targoninc/ts-logging@0.0.1", "", { "dependencies": { "uuidv7": "^1.0.2" }, "peerDependencies": { "typescript": "^5" } }, "sha512-w6Gjz7VhGKQbI5fU/cXbIDzn0udVjrOzbDrRBfsRPo7YzFONP1VZCL/sm9mWug09VDLNfQ/nVo508cD88B+T7Q=="],
+    "@targoninc/ts-logging": ["@targoninc/ts-logging@0.0.3", "", { "dependencies": { "uuidv7": "^1.0.2" }, "peerDependencies": { "typescript": "^5" } }, "sha512-o2/ytwKH3OG4igzejm1ekR1WZnf2nAeCOsTUy291qe1uIvcPwHOl+Jcn0caUljz6QGMSQNMIk70g0lFOYTVtAw=="],
 
     "@types/bun": ["@types/bun@1.2.10", "", { "dependencies": { "bun-types": "1.2.10" } }, "sha512-eilv6WFM3M0c9ztJt7/g80BDusK98z/FrFwseZgT4bXCq2vPhXD4z8R3oddmAn+R/Nmz9vBn4kweJKmGTZj+lg=="],
 
