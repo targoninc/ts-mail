@@ -25,7 +25,7 @@ export function heading(text: string, size = 1): MailElement {
     }
 }
 
-export function card(content: MailElement[]) {
+export function card(content: MailElement[]): MailElement {
     let html = `<div class="card">`;
     let text = "";
 
@@ -50,7 +50,7 @@ export class MailBuilder {
     constructor() {
     }
 
-    static new() {
+    static new(): MailBuilder {
         return new MailBuilder();
     }
 
@@ -60,34 +60,34 @@ export class MailBuilder {
             .image(logoUrl, "Logo", 32, 32);
     }
 
-    public subject(text: string) {
+    public subject(text: string): this {
         this.subjectLine = text;
 
         return this;
     }
 
-    public heading(text: string, size = 1) {
+    public heading(text: string, size = 1): this {
         this.body += heading(text, size).html;
         this.text += heading(text, size).text;
 
         return this;
     }
 
-    public paragraph(text: string) {
+    public paragraph(text: string): this {
         this.body += paragraph(text).html;
         this.text += paragraph(text).text;
 
         return this;
     }
 
-    public link(url: string, text: string = url) {
+    public link(url: string, text: string = url): this {
         this.body += link(url, text).html;
         this.text += link(url, text).text;
 
         return this;
     }
 
-    public signature(sender: string, company: string, settingsLink?: string) {
+    public signature(sender: string, company: string, settingsLink?: string): this {
         const currentDate = new Date().toLocaleDateString();
 
         this.body += `<span>Kind regards,<br>${sender}</span><br><span class="small-text grey">${company}, ${currentDate}</span>`;
@@ -102,7 +102,7 @@ export class MailBuilder {
         return this;
     }
 
-    public style(css: string) {
+    public style(css: string): this {
         this.head += `<style>${css}</style>`;
 
         return this;
@@ -118,20 +118,20 @@ export class MailBuilder {
         }
     }
 
-    public card(content: MailElement[]) {
+    public card(content: MailElement[]): this {
         this.body += card(content).html;
         this.text += card(content).text;
 
         return this;
     }
 
-    public image(url: string, alt: string, width: number, height: number) {
+    public image(url: string, alt: string, width: number, height: number): this {
         this.body += `<img src="${url}" alt="${alt}" title="${alt}" width="${width}" height="${height}" style="display:block"/>`;
 
         return this;
     }
 
-    quote(text: string) {
+    quote(text: string): this {
         this.body += `<blockquote>${text}</blockquote>`
         this.text += `"${text}"${breakString}`;
 

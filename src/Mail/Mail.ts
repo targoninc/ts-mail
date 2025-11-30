@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export class Mail {
-    static send(email: Email) {
+    static send(email: Email): void {
         CLI.debug(`Sending email to ${email.to}: ${email.subject}`);
         email.from = process.env.MAIL_USER;
         transporter.sendMail(email, (error, info) => {
@@ -34,7 +34,7 @@ export class Mail {
         });
     }
 
-    static sendDefault(email: string, mailBuild: MailBuild) {
+    static sendDefault(email: string, mailBuild: MailBuild): void {
         Mail.send({
             to: email.trim(),
             subject: mailBuild.subject,
