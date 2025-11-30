@@ -3,6 +3,9 @@ import * as NodeMail from "nodemailer/lib/mailer/index";
 import {CLI} from "@targoninc/ts-logging";
 import {MailBuild} from "./MailBuild.ts";
 
+/**
+ * Alias of Nodemailer's {@link NodeMail.Options} for convenience when constructing emails.
+ */
 export type Email = NodeMail.Options;
 
 const requiredEnvVars = ["MAIL_HOST", "MAIL_USER", "MAIL_PASSWORD"];
@@ -21,7 +24,16 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+/**
+ * Thin wrapper around Nodemailer for sending emails with logging and sane defaults.
+ */
 export class Mail {
+    /**
+     * Sends an email using the configured transporter.
+     * The `from` address is automatically set from `process.env.MAIL_USER`.
+     *
+     * @param email - The email options to send.
+     */
     static send(email: Email): void {
         CLI.debug(`Sending email to ${email.to}: ${email.subject}`);
         email.from = process.env.MAIL_USER;
@@ -34,6 +46,12 @@ export class Mail {
         });
     }
 
+    /**
+     * Convenience method to send a prebuilt email created by {@link MailBuilder}.
+     *
+     * @param email - Recipient email address.
+     * @param mailBuild - The built mail parts (subject, html, text).
+     */
     static sendDefault(email: string, mailBuild: MailBuild): void {
         Mail.send({
             to: email.trim(),

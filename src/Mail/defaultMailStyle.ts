@@ -1,3 +1,7 @@
+/**
+ * Default CSS used by {@link MailBuilder.default} to provide sane styling for the generated emails.
+ * You can extend or override this by calling {@link MailBuilder.style} with your own CSS.
+ */
 export const defaultMailStyle = `
 * {
     box-sizing: border-box;
