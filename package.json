@@ -18,14 +18,14 @@
   },
   "dependencies": {
     "@targoninc/ts-logging": "^0.0.3",
-    "nodemailer": "^6.10.1"
+    "nodemailer": "7.0.7"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/nodemailer": "^6.4.17",
-    "bun-plugin-dtsx": "^0.21.9"
+    "@types/nodemailer": "^6.4.21",
+    "bun-plugin-dtsx": "^0.21.17"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.8.3"
   }
 }

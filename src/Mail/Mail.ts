@@ -1,9 +1,9 @@
 import nodemailer from "nodemailer";
-import {Options} from "nodemailer/lib/mailer";
+import * as NodeMail from "nodemailer/lib/mailer/index";
 import {CLI} from "@targoninc/ts-logging";
 import {MailBuild} from "./MailBuild.ts";
 
-export type Email = Options;
+export type Email = NodeMail.Options;
 
 const requiredEnvVars = ["MAIL_HOST", "MAIL_USER", "MAIL_PASSWORD"];
 const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar] || process.env[envVar].trim().length === 0);
