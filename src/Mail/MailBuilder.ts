@@ -56,7 +56,7 @@ export function heading(text: string, size = 1): MailElement {
  */
 export function image(url: string, alt: string, width: number, height: number): MailElement {
     return {
-        html: `<img src="${url}" alt="${alt}" title="${alt}" width="${width}" height="${height}" style="display:block"/>${breakString}`,
+        html: `<img src="${url}" alt="${alt}" title="${alt}" width="${width}" height="${height}" style="display:block;width:${width}px;height:${height}px;"/>${breakString}`,
         text: alt + breakString
     }
 }
