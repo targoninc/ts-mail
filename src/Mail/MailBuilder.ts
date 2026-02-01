@@ -46,6 +46,22 @@ export function heading(text: string, size = 1): MailElement {
 }
 
 /**
+ * Creates an image element for emails.
+ *
+ * @param url - The image URL.
+ * @param alt - Alternative text and title attribute.
+ * @param width - Width in pixels.
+ * @param height - Height in pixels.
+ * @returns A {@link MailElement} containing HTML and text variants.
+ */
+export function image(url: string, alt: string, width: number, height: number): MailElement {
+    return {
+        html: `<img src="${url}" alt="${alt}" title="${alt}" width="${width}" height="${height}" style="display:block"/>${breakString}`,
+        text: alt + breakString
+    }
+}
+
+/**
  * Creates a card container that wraps multiple mail elements.
  *
  * @param content - The child elements to include inside the card.
@@ -224,7 +240,8 @@ export class MailBuilder {
      * @param height - Height in pixels.
      */
     public image(url: string, alt: string, width: number, height: number): this {
-        this.body += `<img src="${url}" alt="${alt}" title="${alt}" width="${width}" height="${height}" style="display:block"/>`;
+        this.body += image(url, alt, width, height).html;
+        this.text += image(url, alt, width, height).text;
 
         return this;
     }
