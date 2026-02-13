@@ -18,8 +18,7 @@
     "url": "git+https://github.com/targoninc/ts-mail.git"
   },
   "scripts": {
-    "clean": "powershell -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }\"",
-    "build": "bun run clean && bun build ./src/index.ts --outdir ./dist --target node --format esm && tsc",
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --format esm && tsc",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "bun run build"
   },
