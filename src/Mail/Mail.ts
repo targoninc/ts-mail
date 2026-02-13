@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import * as NodeMail from "nodemailer/lib/mailer/index";
 import {CLI} from "@targoninc/ts-logging";
-import {MailBuild} from "./MailBuild.ts";
+import {MailBuild} from "./MailBuild";
 
 /**
  * Alias of Nodemailer's {@link NodeMail.Options} for convenience when constructing emails.

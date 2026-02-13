@@ -4,6 +4,12 @@
   "version": "0.0.12",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -12,7 +18,8 @@
     "url": "git+https://github.com/targoninc/ts-mail.git"
   },
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target bun --format esm && tsc",
+    "clean": "powershell -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }\"",
+    "build": "bun run clean && bun build ./src/index.ts --outdir ./dist --target node --format esm && tsc",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "bun run build"
   },
